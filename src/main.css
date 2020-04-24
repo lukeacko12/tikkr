@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope&display=swap');
+
+App{
+    font-family: 'Manrope', sans-serif;
+}
+
+.leftside, .rightside{
+    height: 100vh;
+    width: 100%;
+}
+
+.leftside {
+    background-color: white;
+}
+.rightside {
+    background-color: #e3f8fb;
+}
+
+.logo-container{
+    opacity: 100%;
+    text-align: center;
+    padding-top: 300px;
+}
+
+
+.title{
+    padding-top: 150px;
+    padding-left: 80px;
+}
+
+.p-msg{
+    padding-left: 80px;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    color: gray;
+}
+
+.form-padding{
+    padding-bottom: 15px;
+}
+.pl80{
+    padding-left: 80px;
+}
+
+.pr70{
+    padding-right: 70px;
+}
+.signup-msg{
+  display: inline;
+  padding-left: 10px;
+  color: gray;
+}
+
+
+.padding{
+  padding-right: 30px;
+}
+
+.signout{
+    cursor: grab;
+}
