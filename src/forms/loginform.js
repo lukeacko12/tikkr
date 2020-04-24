@@ -13,31 +13,27 @@ class LoginForm extends React.Component {
           password: '',
           toDashboard: false,
         };
-  
+      this.handleLogin = this.handleLogin.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleLogin(form){
-        let thisClone = this
-    
-        const email = form['email']
-        const password = form['password']
-        fire.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-            var errorMessage = error.message
-            console.log(errorMessage)
-        });
-        fire.auth().onAuthStateChanged(function(user) {
-            if (user) {
-              console.log(user)
-              thisClone.setState({ toDashboard: true })
-
-              
-            } else {
-              // No user is signed in.
-            }
-        });          
-    }
+    handleLogin = (form) => {
+      const email = form['email']
+      const password = form['password']
+      fire.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+          var errorMessage = error.message
+          console.log(errorMessage)
+      });
+      fire.auth().onAuthStateChanged( user => {
+          if (user) {
+            console.log(user)
+            this.setState({ toDashboard: true })
+          } else {
+            // No user is signed in.
+          }
+      });          
+  }
 
    
     handleChange = (e) => {
