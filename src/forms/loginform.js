@@ -2,8 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../main.css';
 import React from 'react';
 import fire from '../util/fire';
-import {Redirect} from 'react-router-dom';
-
+import login from '../util/fire';
+import {Redirect} from 'react-router-dom'
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -13,26 +15,31 @@ class LoginForm extends React.Component {
           password: '',
           toDashboard: false,
         };
-      this.handleLogin = this.handleLogin.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleLogin = this.handleLogin.bind(this);
     }
 
     handleLogin = (form) => {
       const email = form['email']
       const password = form['password']
-      fire.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+      const myThis = this;
+      fire.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(() => {
+        fire.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
           var errorMessage = error.message
           console.log(errorMessage)
-      });
-      fire.auth().onAuthStateChanged( user => {
-          if (user) {
-            console.log(user)
-            this.setState({ toDashboard: true })
-          } else {
-            // No user is signed in.
-          }
-      });          
+        });
+        fire.auth().onAuthStateChanged( user => {
+            if (user) {
+              console.log(user)
+    
+              myThis.setState({ toDashboard: true })
+            } else {
+              // No user is signed in.
+            }
+        }); 
+      })         
   }
 
    
