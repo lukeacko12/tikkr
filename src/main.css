@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Manrope&display=swap');
 
-App{
+body{
     font-family: 'Manrope', sans-serif;
+
 }
 
 .leftside, .rightside{
@@ -15,7 +16,12 @@ App{
 .rightside {
     background-color: #e3f8fb;
 }
-
+.rightside-dash {
+    background-color: white;
+}
+.navBarDiv{
+    background-color: #e3f8fb;
+}
 .logo-container{
     opacity: 100%;
     text-align: center;
@@ -58,4 +64,45 @@ App{
 
 .signout{
     cursor: grab;
+   
+}
+.signout-btn{
+    padding-left: 90%;
+}
+
+.loader{
+    text-align: center;
+    line-height: 500px;
+}
+
+#students {
+  text-align: center;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 100%;
+  font-size: 20;
+}
+
+#students td, #students th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+#students tr:nth-child(even){background-color: #e3f8fb;}
+
+#students tr:hover {background-color: #ddd;}
+
+#students th {
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #00BFFF;
+  color: white;
+}
+
+.title-div{
+    padding-top: 15px;
+    text-align: center;
+}
+.star {
+    background: url(/src/baseline_star_border_black_18dp.png);
 }

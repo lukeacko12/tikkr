@@ -9,8 +9,9 @@ var config = {
     appId: "1:202992828632:web:57a8109ae2ca0f609497ad",
     measurementId: "G-Y5WDJ2FGKT"
   };
-var fire = firebase.initializeApp(config);
 
+var fire = firebase.initializeApp(config);
+fire.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 export default fire;
 
 

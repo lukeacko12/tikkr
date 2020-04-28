@@ -30,9 +30,9 @@ class SignoutBtn extends React.Component {
                  return <Redirect to='/' />
             }
             return(
-                <li className="nav-item active signout">
-                    <a className="nav-link signout" onClick={this.signOutFunc}>SIGN OUT</a>             
-                </li>
+       
+                    <a className="nav-link signout nav-item" onClick={this.signOutFunc}>SIGN OUT</a>             
+                
                 );
         }
 

@@ -3,18 +3,20 @@ import { BrowserRouter, Route, Link, Redirect, withRouter, Switch, BrowserRouter
 import Login from './pages/login'
 import Signup from './pages/signup'
 import Dashboard from './pages/dashbord'
-import fire from './util/fire'
-
+import Top25Crypto from './pages/top25crypto'
+import MyFavourites from './pages/myFavourites'
 
 
 function App() {
-  const user=fire.auth().currentUser;
-
-  
-
   return (
     <Router>
       <Switch>
+          <Route path="/favourites">
+            <MyFavourites/>
+          </Route>
+          <Route path='/top25crypto'>
+            <Top25Crypto/>
+          </Route>
           <Route path="/dashboard">
             <Dashboard/>
           </Route>

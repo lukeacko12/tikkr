@@ -29,6 +29,10 @@ class SignupForm extends React.Component {
         fire.auth().createUserWithEmailAndPassword(email, password)
         .then(function(){
             var user = fire.auth().currentUser
+            fire.database().ref('users/'+user.uid + '/').set({
+              username: username,
+              email: email,
+            });
             user.updateProfile({
                 displayName: username,
             })
